@@ -9,4 +9,4 @@ spring:
     password: mis_kopie
 
 server:
-  port: 8081    
+  port: 71    
