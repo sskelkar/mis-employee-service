@@ -38,16 +38,8 @@ public class EmployeeController {
 
   @RequestMapping(method = RequestMethod.POST, value = "/employee")
   @ApiOperation(value = "addEmployee", notes = "Add a new employee. Returns the employee id, if successful.", response = Long.class)
-  public Long addEmployee(String firstName, String middleName, String lastName, String userName, 
-                          String password, String email, String birthDate, String sex, 
-                          Double probationPeriodMonths, String panNumber, 
-                          String passportNumber, String passportValidTill, String emergencyContactPerson, 
-                          String emergencyContactPhoneNumber, String bloodGroup) {
-    return employeeService.addEmployee(firstName, middleName, lastName, userName, 
-                          password, email, new Date(), sex, 
-                          probationPeriodMonths, panNumber, 
-                          passportNumber, new Date(), emergencyContactPerson, 
-                          emergencyContactPhoneNumber, bloodGroup);
+  public Long addEmployee(@RequestBody Employee employee) {
+    return employeeService.addEmployee(employee);
   }
 
   @RequestMapping(method = RequestMethod.PUT, value = "/employee/{id}")
