@@ -7,6 +7,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,16 +52,8 @@ public class EmployeeController {
 
   @RequestMapping(method = RequestMethod.PUT, value = "/employee/{id}")
   @ApiOperation(value = "updateEmployee", notes = "Update an existing employee. Returns the employee id, if successful.", response = Long.class)
-  public Long updateEmployee(@PathVariable("id") String id, String firstName, String middleName, String lastName, String userName, 
-                          String password, String email, String birthDate, String sex, 
-                          Double probationPeriodMonths, String panNumber, 
-                          String passportNumber, String passportValidTill, String emergencyContactPerson, 
-                          String emergencyContactPhoneNumber, String bloodGroup) {
-    return employeeService.updateEmployee(id, firstName, middleName, lastName, userName, 
-                          password, email, new Date(), sex, 
-                          probationPeriodMonths, panNumber, 
-                          passportNumber, new Date(), emergencyContactPerson, 
-                          emergencyContactPhoneNumber, bloodGroup);
+  public Long updateEmployee(@PathVariable("id") String id, @RequestBody Employee employee) {
+    return employeeService.updateEmployee(id, employee);
   }
 
   @RequestMapping(method = RequestMethod.DELETE, value = "/employee/{id}")
