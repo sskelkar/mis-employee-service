@@ -41,29 +41,9 @@ public class EmployeeService {
    * @param leaveTypeId
    * @return employeeLeaveId of the added leave.
    */
-  public Long addEmployee(String firstName, String middleName, String lastName, String userName, 
-                          String password, String email, Date birthDate, String sex, 
-                          Double probationPeriodMonths, String panNumber, 
-                          String passportNumber, Date passportValidTill, String emergencyContactPerson, 
-                          String emergencyContactPhoneNumber, String bloodGroup) {
-    Employee employee = new Employee();
-    employee.setFirstName(firstName);
-    employee.setMiddleName(middleName);
-    employee.setLastName(lastName);
-    employee.setUserName(userName);
-    employee.setPassword(password);
-    employee.setEmail(email);
-    employee.setBirthDate(birthDate);
-    employee.setSex(sex);
-    employee.setProbationPeriodMonths(probationPeriodMonths);
-    employee.setPanNumber(panNumber);
-    employee.setPassportNumber(passportNumber);
-    employee.setPassportValidTill(passportValidTill);
-    employee.setEmergencyContactPerson(emergencyContactPerson);
-    employee.setEmergencyContactPhoneNumber(emergencyContactPhoneNumber);
-    employee.setBloodGroup(bloodGroup);
-
-    return employeeRepository.save(employee).getEmployeeId();
+  public Long addEmployee(Employee employee) 
+  {
+  	return employeeRepository.save(employee).getEmployeeId();
   }
 
   /**
