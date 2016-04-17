@@ -1,15 +1,10 @@
 package com.maxxton.mis.employee.service;
 
-import org.joda.time.DateTimeZone;
-import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.maxxton.mis.employee.domain.Employee;
-import com.maxxton.mis.employee.domain.EmployeeLeave;
 import com.maxxton.mis.employee.repository.EmployeeRepository;
-
-import java.util.Date;
 
 @Service
 public class EmployeeService {
