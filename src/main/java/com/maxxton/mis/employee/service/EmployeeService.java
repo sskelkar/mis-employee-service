@@ -1,5 +1,8 @@
 package com.maxxton.mis.employee.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -69,6 +72,14 @@ public class EmployeeService {
       throw new RuntimeException("Employee not found with the given id.");
     employeeRepository.delete(employee);
     return Long.valueOf(employeeId);
+  }
+
+  public List<String> getCcEmailsForEmployee(Long employeeId)
+  { List<String> list = new ArrayList<>();
+    Employee emp = employeeRepository.findOne(employeeId);
+//    employeeRepository.findCcEmailsForEmployee(employeeId);
+    list.add(emp.getEmail());
+    return list;
   }
 
 }

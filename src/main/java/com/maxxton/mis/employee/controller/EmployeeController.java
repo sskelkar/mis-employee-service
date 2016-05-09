@@ -1,5 +1,7 @@
 package com.maxxton.mis.employee.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +28,11 @@ public class EmployeeController {
   @RequestMapping(method = RequestMethod.GET, value = "/employee/{id}")
   public Employee getEmployee(@PathVariable("id") String id) {
     return employeeService.getEmployeeById(Long.valueOf(id));
+  }
+  
+  @RequestMapping(method = RequestMethod.GET, value = "/cc-emails-for-employee/{id}")
+  public List<String> getCcEmailsForEmployee(@PathVariable("id") String id) {
+    return employeeService.getCcEmailsForEmployee(Long.valueOf(id));
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/employee")

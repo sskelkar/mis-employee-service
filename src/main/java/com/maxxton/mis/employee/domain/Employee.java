@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Column;
 
@@ -34,6 +37,8 @@ public class Employee {
   private String emergencyContactPerson;
   private String emergencyContactPhoneNumber;
   private String bloodGroup;
+  
+  private Long managerId;
 
   public Long getEmployeeId() {
     return employeeId;
@@ -177,5 +182,15 @@ public class Employee {
 
   public void setBloodGroup(String bloodGroup) {
     this.bloodGroup = bloodGroup;
+  }
+
+  public Long getManagerId()
+  {
+    return managerId;
+  }
+
+  public void setManagerId(Long managerId)
+  {
+    this.managerId = managerId;
   }
 }
